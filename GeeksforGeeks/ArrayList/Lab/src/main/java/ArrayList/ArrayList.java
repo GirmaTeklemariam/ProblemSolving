@@ -68,6 +68,15 @@ public class ArrayList<T> {
         System.out.println(count);
     }
 
+    public void subList(int fromIndex, int toIndex) throws ArrayIndexOutOfBoundsException{
+        T[] subItems = (T[]) new Object[(toIndex-fromIndex) + 1];
+        if(toIndex >= count || fromIndex < 0)
+            throw new ArrayIndexOutOfBoundsException("One of the index is invalid");
+        for(int index1=fromIndex, index2=0; index1<toIndex+1; index1++, index2++)
+            subItems[index2] = items[index1];
+        print(subItems);
+    }
+
     private void growArray(T[] items){
         T[] copyItems;
         copyItems = Arrays.copyOf(items, items.length * 2);
@@ -92,6 +101,18 @@ public class ArrayList<T> {
                     System.out.print("}");
             }
         }
+        System.out.println();
+    }
+
+    private void print(T[] subItems){
+            System.out.print("{");
+            for(int index=0; index<subItems.length; index++){
+                System.out.print(subItems[index]);
+                if(index != subItems.length-1)
+                    System.out.print(" ");
+                else
+                    System.out.print("}");
+            }
         System.out.println();
     }
 }

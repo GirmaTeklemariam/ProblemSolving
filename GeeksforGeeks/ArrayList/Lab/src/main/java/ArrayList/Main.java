@@ -39,5 +39,9 @@ public class Main {
 
         // Count items
         stringArrayList.printSizeItems();
+
+        // Sub items
+        System.out.println("Sub list...");
+        stringArrayList.subList(2,5);
     }
 }
